@@ -1,14 +1,17 @@
 import { useEffect } from "react";
-import { useSetAtom } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
 import { eventsAtom, eventsLoadingAtom, eventsErrorAtom } from "@/store/eventsAtom";
 import { fetchEvents } from "@/lib/api";
 
 export function useEvents() {
+    const events = useAtomValue(eventsAtom);
     const setEvents = useSetAtom(eventsAtom);
     const setLoading = useSetAtom(eventsLoadingAtom);
     const setError = useSetAtom(eventsErrorAtom);
 
     useEffect(() => {
+        if (events.length > 0) return;
+
         let cancelled = false; // guard against race conditions
         async function load() {
             try {

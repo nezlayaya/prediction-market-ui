@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAtomValue } from "jotai";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { fetchEventBySlug } from "@/lib/api";
+import { formatVolume } from "@/lib/utils";
 import { getPriceAtom } from "@/store/pricesAtom";
+import { useEvents } from "@/hooks/useEvents";
+import { useLivePrices } from "@/hooks/useLivePrices";
 import type { Event, Market, Outcome } from "@/types";
 import styles from "./page.module.css";
 
@@ -15,6 +18,31 @@ function OutcomeRow({ outcome }: { outcome: Outcome }) {
   const price = livePrice > 0 ? livePrice : outcome.price;
   const pct = Math.round(price * 100);
 
+  const previousPrice = useRef(price);
+  const [flash, setFlash] = useState<"up" | "down" | null>(null);
+
+  useEffect(() => {
+    if (price > previousPrice.current) {
+      setFlash("up");
+    } else if (price < previousPrice.current) {
+      setFlash("down");
+    }
+    previousPrice.current = price;
+  }, [price]);
+
+  useEffect(() => {
+    if (flash === null) return;
+    const timer = setTimeout(() => setFlash(null), 600);
+    return () => clearTimeout(timer);
+  }, [flash]);
+
+  const pctClass = [
+    styles.pricePct,
+    flash === "up" ? styles.priceUp : flash === "down" ? styles.priceDown : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <div className={styles.outcomeRow}>
       <span className={styles.outcomeName} title={outcome.title}>
@@ -23,17 +51,25 @@ function OutcomeRow({ outcome }: { outcome: Outcome }) {
       <div className={styles.barTrack}>
         <div className={styles.barFill} style={{ width: `${pct}%` }} />
       </div>
-      <span className={styles.pricePct}>{pct}%</span>
+      <span className={pctClass}>{pct}%</span>
     </div>
   );
 }
 
 // ---- Market card ----
 
-function MarketCard({ market }: { market: Market }) {
+function MarketCard({
+  market,
+  eventTitle,
+}: {
+  market: Market;
+  eventTitle: string;
+}) {
   return (
     <div className={styles.marketCard}>
-      <h3 className={styles.marketQuestion}>{market.question}</h3>
+      {market.question !== eventTitle && (
+        <h3 className={styles.marketQuestion}>{market.question}</h3>
+      )}
       {market.outcomes.map((outcome) => (
         <OutcomeRow key={outcome.id} outcome={outcome} />
       ))}
@@ -58,7 +94,10 @@ function LoadingSkeleton() {
 // ---- Page component ----
 
 export default function EventDetailPage() {
+  useEvents();
+  useLivePrices();
   const params = useParams<{ slug: string }>();
+  const router = useRouter();
   const [event, setEvent] = useState<Event | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -92,12 +131,16 @@ export default function EventDetailPage() {
 
   return (
     <div className={styles.container}>
+      <button className={styles.backButton} onClick={() => router.back()}>
+        ← Markets
+      </button>
       <h1 className={styles.title}>{event.title}</h1>
       {event.description && (
         <p className={styles.description}>{event.description}</p>
       )}
+      <p className={styles.volume}>{formatVolume(event.volume)} Vol.</p>
       {event.markets.map((market) => (
-        <MarketCard key={market.id} market={market} />
+        <MarketCard key={market.id} market={market} eventTitle={event.title} />
       ))}
     </div>
   );
