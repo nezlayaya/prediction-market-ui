@@ -1,0 +1,130 @@
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  min-height: 100vh;
+  background: #111213;
+  color: #fff;
+}
+
+/* ---------- Loading skeleton ---------- */
+
+.skeletonTitle {
+  height: 2rem;
+  width: 60%;
+  background: #2c2d30;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeletonDesc {
+  height: 1rem;
+  width: 90%;
+  background: #2c2d30;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeletonMarket {
+  height: 160px;
+  background: #2c2d30;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ---------- Header ---------- */
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.description {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+/* ---------- Market card ---------- */
+
+.marketCard {
+  background: #1a1b1e;
+  border: 1px solid #2c2d30;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.marketQuestion {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin: 0 0 1rem;
+}
+
+/* ---------- Outcome row ---------- */
+
+.outcomeRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.outcomeRow + .outcomeRow {
+  border-top: 1px solid #2c2d30;
+}
+
+.outcomeName {
+  width: 48px;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  color: #ccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.barTrack {
+  flex: 1;
+  height: 8px;
+  width: 100%;
+  background: #2c2d30;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 4px;
+  background: #3b82f6;
+  transition: width 0.4s ease;
+}
+
+.pricePct {
+  width: 48px;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  font-variant-numeric: tabular-nums;
+}
