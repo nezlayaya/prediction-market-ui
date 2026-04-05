@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+/* eslint-disable react-hooks/set-state-in-effect */
+import { useEffect, useState } from "react";
 import { useAtomValue } from "jotai";
 import { useParams, useRouter } from "next/navigation";
 import { fetchEventBySlug } from "@/lib/api";
@@ -18,23 +19,16 @@ function OutcomeRow({ outcome }: { outcome: Outcome }) {
   const price = livePrice > 0 ? livePrice : outcome.price;
   const pct = Math.round(price * 100);
 
-  const previousPrice = useRef(price);
   const [flash, setFlash] = useState<"up" | "down" | null>(null);
+  const [prevPrice, setPrevPrice] = useState(price);
 
   useEffect(() => {
-    if (price > previousPrice.current) {
-      setFlash("up");
-    } else if (price < previousPrice.current) {
-      setFlash("down");
-    }
-    previousPrice.current = price;
-  }, [price]);
-
-  useEffect(() => {
-    if (flash === null) return;
+    if (price === prevPrice) return;
+    setFlash(price > prevPrice ? "up" : "down");
+    setPrevPrice(price);
     const timer = setTimeout(() => setFlash(null), 600);
     return () => clearTimeout(timer);
-  }, [flash]);
+  }, [prevPrice, price]);
 
   const pctClass = [
     styles.pricePct,
