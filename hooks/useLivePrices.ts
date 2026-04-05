@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
-import { useAtomValue, useSetAtom } from "jotai";
-import { eventsAtom } from "@/store/eventsAtom";
-import { applyPriceUpdatesAtom } from "@/store/pricesAtom";
-import type { PriceUpdate } from "@/types";
+import {useEffect, useRef} from "react";
+import {useAtomValue, useSetAtom} from "jotai";
+import {eventsAtom} from "@/store/eventsAtom";
+import {applyPriceUpdatesAtom} from "@/store/pricesAtom";
+import type {PriceUpdate} from "@/types";
 
 // Simulates a price change of ±0–3%
 function simulatePriceChange(currentPrice: number): number {

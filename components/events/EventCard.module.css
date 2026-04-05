@@ -1,112 +1,113 @@
 .card {
-  background: #1a1b1e;
-  border: 1px solid #2c2d30;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    background: #1a1b1e;
+    border: 1px solid #2c2d30;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
-  border-color: #4a4b50;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #25262a 0%, #1a1b1e 100%);
+    border-color: #4a4b50;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ---------- Body ---------- */
 
 .body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
 }
 
 .title {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* ---------- Outcomes ---------- */
 
 .outcomes {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .badge {
-  background: #1e1f23;
-  border-radius: 8px;
-  padding: 8px 12px;
-  margin-bottom: 6px;
+    background: #1e1f23;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 6px;
 }
 
 .badgeRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
 }
 
 .badgeLabel {
-  font-size: 13px;
-  color: #a0a1a6;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    font-size: 13px;
+    color: #a0a1a6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .badgePct {
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-  font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
 }
 
 .barTrack {
-  height: 6px;
-  background: #2c2d30;
-  border-radius: 3px;
-  overflow: hidden;
+    height: 6px;
+    background: #2c2d30;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
 .barFill {
-  height: 6px;
-  background: #3b82f6;
-  border-radius: 3px;
-  transition: width 0.4s ease;
+    height: 6px;
+    background: #3b82f6;
+    border-radius: 3px;
+    transition: width 0.4s ease;
 }
 
-.priceUp { color: #22c55e; transition: color 0.3s ease; }
-.priceDown { color: #ef4444; transition: color 0.3s ease; }
+.priceUp {
+    color: #22c55e;
+    transition: color 0.3s ease;
+}
+
+.priceDown {
+    color: #ef4444;
+    transition: color 0.3s ease;
+}
 
 /* ---------- Footer ---------- */
 
 .footer {
-  margin-top: auto;
-  text-align: right;
+    margin-top: auto;
+    text-align: right;
 }
 
 .volume {
-  font-size: 12px;
-  color: #4a4b50;
-  margin-top: 4px;
+    font-size: 12px;
+    color: #4a4b50;
+    margin-top: 4px;
 }

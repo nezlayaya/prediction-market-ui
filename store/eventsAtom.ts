@@ -1,5 +1,5 @@
-import { atom } from "jotai";
-import type { Event, Category } from "@/types";
+import {atom} from "jotai";
+import type {Event, Category} from "@/types";
 
 // All events loaded from the API
 export const eventsAtom = atom<Event[]>([]);

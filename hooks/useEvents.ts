@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
-import { useAtomValue, useSetAtom } from "jotai";
-import { eventsAtom, eventsLoadingAtom, eventsErrorAtom } from "@/store/eventsAtom";
-import { fetchEvents } from "@/lib/api";
+import {useEffect, useRef} from "react";
+import {useAtomValue, useSetAtom} from "jotai";
+import {eventsAtom, eventsLoadingAtom, eventsErrorAtom} from "@/store/eventsAtom";
+import {fetchEvents} from "@/lib/api";
 
 export function useEvents() {
     const events = useAtomValue(eventsAtom);
@@ -15,6 +15,7 @@ export function useEvents() {
         hasFetched.current = true;
 
         let cancelled = false;
+
         async function load() {
             try {
                 setLoading(true);

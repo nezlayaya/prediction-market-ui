@@ -1,5 +1,5 @@
-import { atom } from "jotai";
-import type { PriceUpdate } from "@/types";
+import {atom} from "jotai";
+import type {PriceUpdate} from "@/types";
 
 const priceAtomsMap = new Map<string, ReturnType<typeof atom<number>>>();
 

@@ -1,4 +1,4 @@
-import type { Event } from "@/types";
+import type {Event} from "@/types";
 
 export const mockEvents: Event[] = [
     {
@@ -15,8 +15,8 @@ export const mockEvents: Event[] = [
                 question: "Will Bitcoin exceed $100,000 before end of 2025?",
                 volume: 4820000,
                 outcomes: [
-                    { id: "o1", title: "Yes", price: 0.72 },
-                    { id: "o2", title: "No", price: 0.28 },
+                    {id: "o1", title: "Yes", price: 0.72},
+                    {id: "o2", title: "No", price: 0.28},
                 ],
             },
         ],
@@ -35,8 +35,8 @@ export const mockEvents: Event[] = [
                 question: "Will the US enter a recession in 2025?",
                 volume: 3100000,
                 outcomes: [
-                    { id: "o3", title: "Yes", price: 0.41 },
-                    { id: "o4", title: "No", price: 0.59 },
+                    {id: "o3", title: "Yes", price: 0.41},
+                    {id: "o4", title: "No", price: 0.59},
                 ],
             },
         ],
@@ -55,10 +55,10 @@ export const mockEvents: Event[] = [
                 question: "Number of Fed rate cuts in 2025",
                 volume: 2750000,
                 outcomes: [
-                    { id: "o5", title: "0", price: 0.12 },
-                    { id: "o6", title: "1", price: 0.31 },
-                    { id: "o7", title: "2", price: 0.34 },
-                    { id: "o8", title: "3+", price: 0.23 },
+                    {id: "o5", title: "0", price: 0.12},
+                    {id: "o6", title: "1", price: 0.31},
+                    {id: "o7", title: "2", price: 0.34},
+                    {id: "o8", title: "3+", price: 0.23},
                 ],
             },
         ],
@@ -77,10 +77,10 @@ export const mockEvents: Event[] = [
                 question: "Who will win the 2025 NBA Championship?",
                 volume: 1980000,
                 outcomes: [
-                    { id: "o9", title: "Boston Celtics", price: 0.28 },
-                    { id: "o10", title: "Oklahoma City Thunder", price: 0.22 },
-                    { id: "o11", title: "Cleveland Cavaliers", price: 0.15 },
-                    { id: "o12", title: "Golden State Warriors", price: 0.11 },
+                    {id: "o9", title: "Boston Celtics", price: 0.28},
+                    {id: "o10", title: "Oklahoma City Thunder", price: 0.22},
+                    {id: "o11", title: "Cleveland Cavaliers", price: 0.15},
+                    {id: "o12", title: "Golden State Warriors", price: 0.11},
                 ],
             },
         ],
@@ -99,8 +99,8 @@ export const mockEvents: Event[] = [
                 question: "Will Ethereum exceed $5,000 in 2025?",
                 volume: 2340000,
                 outcomes: [
-                    { id: "o13", title: "Yes", price: 0.55 },
-                    { id: "o14", title: "No", price: 0.45 },
+                    {id: "o13", title: "Yes", price: 0.55},
+                    {id: "o14", title: "No", price: 0.45},
                 ],
             },
         ],
@@ -119,8 +119,8 @@ export const mockEvents: Event[] = [
                 question: "Super Bowl LIX Winner",
                 volume: 5600000,
                 outcomes: [
-                    { id: "o15", title: "Philadelphia Eagles", price: 0.52 },
-                    { id: "o16", title: "Kansas City Chiefs", price: 0.48 },
+                    {id: "o15", title: "Philadelphia Eagles", price: 0.52},
+                    {id: "o16", title: "Kansas City Chiefs", price: 0.48},
                 ],
             },
         ],
@@ -139,8 +139,8 @@ export const mockEvents: Event[] = [
                 question: "Will Trump's approval rating exceed 50%?",
                 volume: 1450000,
                 outcomes: [
-                    { id: "o17", title: "Yes", price: 0.33 },
-                    { id: "o18", title: "No", price: 0.67 },
+                    {id: "o17", title: "Yes", price: 0.33},
+                    {id: "o18", title: "No", price: 0.67},
                 ],
             },
         ],
@@ -159,8 +159,8 @@ export const mockEvents: Event[] = [
                 question: "Will Solana reach $500 in 2025?",
                 volume: 1870000,
                 outcomes: [
-                    { id: "o19", title: "Yes", price: 0.48 },
-                    { id: "o20", title: "No", price: 0.52 },
+                    {id: "o19", title: "Yes", price: 0.48},
+                    {id: "o20", title: "No", price: 0.52},
                 ],
             },
         ],
@@ -179,10 +179,10 @@ export const mockEvents: Event[] = [
                 question: "Wimbledon 2025 Men's Singles Winner",
                 volume: 980000,
                 outcomes: [
-                    { id: "o21", title: "Carlos Alcaraz", price: 0.35 },
-                    { id: "o22", title: "Novak Djokovic", price: 0.25 },
-                    { id: "o23", title: "Jannik Sinner", price: 0.22 },
-                    { id: "o24", title: "Other", price: 0.18 },
+                    {id: "o21", title: "Carlos Alcaraz", price: 0.35},
+                    {id: "o22", title: "Novak Djokovic", price: 0.25},
+                    {id: "o23", title: "Jannik Sinner", price: 0.22},
+                    {id: "o24", title: "Other", price: 0.18},
                 ],
             },
         ],
@@ -201,8 +201,8 @@ export const mockEvents: Event[] = [
                 question: "Will US unemployment exceed 5% in 2025?",
                 volume: 760000,
                 outcomes: [
-                    { id: "o25", title: "Yes", price: 0.29 },
-                    { id: "o26", title: "No", price: 0.71 },
+                    {id: "o25", title: "Yes", price: 0.29},
+                    {id: "o26", title: "No", price: 0.71},
                 ],
             },
         ],
@@ -221,10 +221,10 @@ export const mockEvents: Event[] = [
                 question: "UEFA Champions League 2024/25 Winner",
                 volume: 2100000,
                 outcomes: [
-                    { id: "o27", title: "Real Madrid", price: 0.24 },
-                    { id: "o28", title: "Manchester City", price: 0.19 },
-                    { id: "o29", title: "Bayern Munich", price: 0.16 },
-                    { id: "o30", title: "Other", price: 0.41 },
+                    {id: "o27", title: "Real Madrid", price: 0.24},
+                    {id: "o28", title: "Manchester City", price: 0.19},
+                    {id: "o29", title: "Bayern Munich", price: 0.16},
+                    {id: "o30", title: "Other", price: 0.41},
                 ],
             },
         ],
@@ -243,8 +243,8 @@ export const mockEvents: Event[] = [
                 question: "Will XRP reach $5 in 2025?",
                 volume: 1230000,
                 outcomes: [
-                    { id: "o31", title: "Yes", price: 0.44 },
-                    { id: "o32", title: "No", price: 0.56 },
+                    {id: "o31", title: "Yes", price: 0.44},
+                    {id: "o32", title: "No", price: 0.56},
                 ],
             },
         ],
