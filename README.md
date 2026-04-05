@@ -15,10 +15,7 @@ A Next.js app replicating the core Polymarket experience — browse prediction m
 # 1. Install dependencies
 npm install
 
-# 2. Create environment file
-echo "NEXT_PUBLIC_BASE_URL=http://localhost:3000" > .env.local
-
-# 3. Start the dev server
+# 2. Start the dev server
 npm run dev
 ```
 
