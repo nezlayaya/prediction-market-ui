@@ -7,8 +7,6 @@ import { useParams, useRouter } from "next/navigation";
 import { fetchEventBySlug } from "@/lib/api";
 import { formatVolume } from "@/lib/utils";
 import { getPriceAtom } from "@/store/pricesAtom";
-import { useEvents } from "@/hooks/useEvents";
-import { useLivePrices } from "@/hooks/useLivePrices";
 import type { Event, Market, Outcome } from "@/types";
 import styles from "./page.module.css";
 
@@ -88,8 +86,6 @@ function LoadingSkeleton() {
 // ---- Page component ----
 
 export default function EventDetailPage() {
-  useEvents();
-  useLivePrices();
   const params = useParams<{ slug: string }>();
   const router = useRouter();
   const [event, setEvent] = useState<Event | null>(null);

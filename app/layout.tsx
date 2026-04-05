@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Provider } from "jotai";
 import Navbar from "@/components/layout/Navbar";
+import AppShell from "@/components/providers/AppShell";
 
 export const metadata: Metadata = {
     title: "Polymarket — Prediction Markets",
@@ -14,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body>
                 <Provider>
                     <Navbar />
-                    {children}
+                    <AppShell>{children}</AppShell>
                 </Provider>
             </body>
         </html>

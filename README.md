@@ -82,7 +82,7 @@ Each outcome price lives in its own atom. When a price changes, only the `PriceB
 
 ## Real-Time Price Updates
 
-1. `useLivePrices` seeds each outcome's atom with its initial price from the API response.
+1. `useLivePrices` and `useEvents` are initialized once in the root layout (`app/layout.tsx`), ensuring a single interval runs globally regardless of which page is active. `useLivePrices` seeds each outcome's atom with its initial price from the API response.
 2. A `setInterval` fires every **3 seconds**.
 3. On each tick, ~**20%** of outcomes are randomly selected for update. Each selected outcome's price shifts by **+/- 0-3%**, clamped to `[0.01, 0.99]`.
 4. Updates are dispatched through `applyPriceUpdatesAtom`, which writes to individual per-outcome atoms.
