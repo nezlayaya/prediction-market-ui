@@ -40,6 +40,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 │   │   └── PriceBadge.tsx        # Live-updating price badge with animated progress bar
 │   ├── layout/
 │   │   └── Navbar.tsx            # Top nav with category filter buttons
+│   ├── providers/
+│   │   └── AppShell.tsx          # Client component that initializes useEvents and useLivePrices globally
 │   └── ui/
 │       └── SkeletonCard.tsx      # Placeholder skeleton shown during data fetch
 │
