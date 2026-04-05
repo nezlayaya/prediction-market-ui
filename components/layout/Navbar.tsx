@@ -31,8 +31,16 @@ export default function Navbar() {
               key={value}
               className={`${styles.pill} ${selected === value ? styles.active : ""}`}
               onClick={() => {
-                setSelected(value);
-                if (pathname !== "/") router.push("/");
+                if (value === "crypto") {
+                  setSelected(value);
+                  router.push("/crypto");
+                } else if (value === "sports") {
+                  setSelected(value);
+                  router.push("/sports");
+                } else {
+                  setSelected(value);
+                  if (pathname !== "/") router.push("/");
+                }
               }}
             >
               {label}

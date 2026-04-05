@@ -13,9 +13,6 @@ function EventCard({ event }: { event: Event }) {
 
   return (
     <Link href={`/event/${event.slug}`} className={styles.card}>
-      <div className={styles.imageWrap}>
-          <div className={styles.placeholder} />
-      </div>
       <div className={styles.body}>
         <h3 className={styles.title}>{event.title}</h3>
         <div className={styles.outcomes}>

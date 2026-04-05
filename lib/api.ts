@@ -73,7 +73,7 @@ export async function fetchEvents(): Promise<Event[]> {
 
 export async function fetchEventBySlug(slug: string): Promise<Event | null> {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/${slug}`
+        `${BASE_URL}/api/events/${slug}`
     );
 
     if (res.status === 404) return null;

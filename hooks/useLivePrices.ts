@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { eventsAtom } from "@/store/eventsAtom";
 import { applyPriceUpdatesAtom } from "@/store/pricesAtom";
@@ -13,19 +13,23 @@ function simulatePriceChange(currentPrice: number): number {
 export function useLivePrices() {
     const events = useAtomValue(eventsAtom);
     const applyUpdates = useSetAtom(applyPriceUpdatesAtom);
+    const livePrices = useRef<Map<string, number>>(new Map());
 
     useEffect(() => {
         if (events.length === 0) return;
 
-        // Seed price atoms with initial values from events to avoid 0% flash
+        // Seed price atoms and local tracker with initial values
         const seed: PriceUpdate[] = [];
         events.forEach((event) => {
             event.markets.forEach((market) => {
                 market.outcomes.forEach((outcome) => {
+                    if (!livePrices.current.has(outcome.id)) {
+                        livePrices.current.set(outcome.id, outcome.price);
+                    }
                     seed.push({
                         marketId: market.id,
                         outcomeId: outcome.id,
-                        price: outcome.price,
+                        price: livePrices.current.get(outcome.id)!,
                         previousPrice: outcome.price,
                     });
                 });
@@ -42,11 +46,14 @@ export function useLivePrices() {
                 event.markets.forEach((market) => {
                     market.outcomes.forEach((outcome) => {
                         if (Math.random() < 0.2) {
+                            const current = livePrices.current.get(outcome.id) ?? outcome.price;
+                            const newPrice = simulatePriceChange(current);
+                            livePrices.current.set(outcome.id, newPrice);
                             updates.push({
                                 marketId: market.id,
                                 outcomeId: outcome.id,
-                                price: simulatePriceChange(outcome.price),
-                                previousPrice: outcome.price,
+                                price: newPrice,
+                                previousPrice: current,
                             });
                         }
                     });
